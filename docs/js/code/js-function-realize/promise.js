@@ -44,7 +44,6 @@ class Promise {
         if (this.status === 'fulfilled') {
             setTimeout(() => {
                 try {
-                    // onFulfilled(this.value)
                     this.onFulfilledCbs.push(value => {
                         setTimeout(() => {
                             try {

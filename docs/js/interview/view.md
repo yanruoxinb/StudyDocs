@@ -63,6 +63,15 @@ console.log(['1','2','3']).map(parseInt);
 // [1,NaN,NaN]
 ```
 
+4. 作用域
+```js
+  console.log(foo); //会打印函数，而不是 undefined 。
+  function foo(){
+      console.log("foo");
+  }
+  var foo = 1;
+```
+
 
 
 

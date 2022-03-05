@@ -1,5 +1,4 @@
 function getMax() {
-
     let arr = [
         [7],
         [3, 8],

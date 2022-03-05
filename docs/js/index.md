@@ -1,16 +1,16 @@
 
-## `Script`
+# `Script`
 1. defer
 - 脚本会被延迟到整个页面都解析完毕后再运行，会在`DOMContentLoaded`事件之前执行，规范要求脚本应该按照他们出现的顺序执行
 2. async
 - 不必等脚本下载和执行完成后再加载页面，同样不必等该异步脚本下载和执行后再加载其它脚本。异步脚本不应该在加载期间修改DOM
 
-## 文档模式
+# 文档模式
 1. 混杂模式
 2. 标准模式
 
 
-## `let` 和 `var` 的区别
+# `let` 和 `var` 的区别
 
 1. 变量提升
 ```js
@@ -24,6 +24,7 @@
 ```
 
 2. 全局声明
+- `let` 在全局作用域中声明的变量不会成为`window`对象的属性（`var`声明的变量则会）
 ```js
     var name = 'Matt';
     console.log(window.name); // 'Matt'
@@ -46,10 +47,27 @@
     // 如果 age 之前声明过，这里会报错
  </script>
 ```
+> tips1: 在函数内定义变量是省略 `var` 操作符,可以创建一个全局变量
+> tips2: `let` 不允许同一个块作用域中出现冗余声明
+```js
+    var name;
+    var name;
+    let age;
+    let age; //SyntaxError;标识符age已经声明过了
+```
+> tips3: 对声明冗余报错不会因混用 let 和 var 而受影响。这两个关键字声明的并不是不同类型的变量， 它们只是指出变量在相关作用域如何存在
+```js
+    var name;
+    let name; // SyntaxError
+    let age;
+    var age; // SyntaxError
+```
 
-## 判断数据类型
+
+# 判断数据类型
 
 1. `typeof` 
+- 返回值包括以下几种：`undefined`, `number`,`string`, `symbol` ,`object`, `function` ,`boolean`
 ```js
     // 需要注意的地方 
     typeof null; // object
@@ -66,31 +84,32 @@
 4. Object.prototype.toString.call
 
 ```js
-Object.prototype.toString.call('') ;   // [object String]
-Object.prototype.toString.call(1) ;    // [object Number]
-Object.prototype.toString.call(true) ; // [object Boolean]
-Object.prototype.toString.call(undefined) ; // [object Undefined]
-Object.prototype.toString.call(null) ; // [object Null]
-Object.prototype.toString.call(new Function()) ; // [object Function]
-Object.prototype.toString.call(new Date()) ; // [object Date]
-Object.prototype.toString.call([]) ; // [object Array]
-Object.prototype.toString.call(new RegExp()) ; // [object RegExp]
-Object.prototype.toString.call(new Error()) ; // [object Error]
-Object.prototype.toString.call(document) ; // [object HTMLDocument]
-Object.prototype.toString.call(window) ; //[object Window]
+    Object.prototype.toString.call('') ;   // [object String]
+    Object.prototype.toString.call(1) ;    // [object Number]
+    Object.prototype.toString.call(true) ; // [object Boolean]
+    Object.prototype.toString.call(undefined) ; // [object Undefined]
+    Object.prototype.toString.call(null) ; // [object Null]
+    Object.prototype.toString.call(new Function()) ; // [object Function]
+    Object.prototype.toString.call(new Date()) ; // [object Date]
+    Object.prototype.toString.call([]) ; // [object Array]
+    Object.prototype.toString.call(new RegExp()) ; // [object RegExp]
+    Object.prototype.toString.call(new Error()) ; // [object Error]
+    Object.prototype.toString.call(document) ; // [object HTMLDocument]
+    Object.prototype.toString.call(window) ; //[object Window]
 
 ```
 
-## new 函数的作用以及实现
+# new 函数的作用以及实现
 > new 运算符创建一个用户定义的对象类型的实例或具有构造函数的内置对象的实例。
 
 - 创造一个全新的对象
 - 这个对象会执行[Prototype]连接,将这个新对象的[Prototype](__proto__)链接到这个构造函数.prototype所指向的对象
 - 这个新对象会绑定到函数调用的this
+- 执行构造函数内部代码
 - 如果函数没有返回其它对象，那么 new 表达式中的函数调用会自动返回这个新对象
 
 
-## 数值转换
+# 数值转换
 
 1. 布尔值：`true` 转换为 1，`false`转换为 0 
 2. 数值：直接返回
@@ -108,13 +127,13 @@ Object.prototype.toString.call(window) ; //[object Window]
 6. 对象
 - 调用 valueOf()方法，并按照上述规则转换返回的值。如果转换结果是 NaN，则调用 toString()方法，再按照转换字符串的规则转换。
 
-## 垃圾回收
+# 垃圾回收
 - 标记清除
 > 标记内存中存储的所有变量（记住，标记方法有很多种）。然后，它会将所有在上下文中的变量，以及被在上下文中的变量引用的变量的标记去掉。在此之后再被加上标记的变量就是待删除的了，原因是任何在上下文中的变量都访问不到它们了。随后垃圾回收程序做一次内存清理，销毁带标记的所有值并收回它们的内存。
 
 - 引用计数
 
-## 创建对象
+# 创建对象
 1. 工厂模式
 ```js
     function createPerson(name, age, job) {
@@ -149,17 +168,7 @@ Object.prototype.toString.call(window) ; //[object Window]
 ```
 3. 原型模式
 
-
-
-## new的作用
-- 在内存中创建一个新的对象
-- 将这个新对象的`[[Prototype]]`特性被赋值为构造函数的`prototype`函数
-- 构造函数内部的`this`被赋值为这个新对象
-- 执行构造函数内部代码
-- 如何构造函数返回非空对象，则返回改对象；否则，返回刚刚创建的新对象
-
-
-## 原型相关
+# 原型相关
 ```js
     function Person() {
     }
@@ -181,8 +190,8 @@ Object.prototype.toString.call(window) ; //[object Window]
 
 ```
 
-## 继承
-#### 原型链继承
+# 继承
+### 原型链继承
 1. 引用类型的属性被所有实例共享
 2. 创建类的时候，不能向Parent传参
 ```js
@@ -199,7 +208,7 @@ Object.prototype.toString.call(window) ; //[object Window]
     console.log(child2.names);
       // ["kevin", "daisy", "yayu"]
 ```
-#### 借用构造函数继承
+### 借用构造函数继承
 1. 避免了引用类型的属性被所有实例共享
 2. 可以在child向parent传参
 3. 方法都在构造函数中定义，因此函数不能重用，每次创建实例都会创建一遍方法
@@ -216,7 +225,7 @@ Object.prototype.toString.call(window) ; //[object Window]
     var child2 = new Child('daisy');
     console.log(child2.name); // daisy
 ```
-#### 组合继承
+### 组合继承
 - 使用原型链继承原型上的属性和方法，而通过盗用构造函数继承实例属性
 ```js
     function SuperType(name){
@@ -226,7 +235,8 @@ Object.prototype.toString.call(window) ; //[object Window]
     SuperType.prototype.sayName = function() {
         console.log(this.name);
     };
-    function SubType(name, age){ // 继承属性 SuperType.call(this, name);
+    function SubType(name, age){ // 继承属性 
+        SuperType.call(this, name);
         this.age = age;
     }
     // 继承方法
@@ -236,32 +246,34 @@ Object.prototype.toString.call(window) ; //[object Window]
     };
     let instance1 = new SubType("Nicholas", 29);
     instance1.colors.push("black"); 
-    console.log(instance1.colors); // "red,blue,green,black" instance1.sayName(); // "Nicholas"; instance1.sayAge(); // 29
+    console.log(instance1.colors); // "red,blue,green,black"
+    instance1.sayName(); // "Nicholas"; 
+    instance1.sayAge(); // 29
     let instance2 = new SubType("Greg", 27);
     console.log(instance2.colors);  // "red,blue,green"
     instance2.sayName();            // "Greg";
     instance2.sayAge();             // 27
 ```
-#### 原型式继承
+### 原型式继承
 ```js
-    function object(o) {
+    function createObj(o) {
       function F() {}
       F.prototype = o;
       return new F();
 }
 ```
-#### 寄生式继承
+### 寄生式继承
 1. 通过寄生式继承给对象添加函数会导致函数难以重用，与构造函数模式类似
 ```js
     function createAnother(original){
-        let clone = object(original); // 通过调用函数创建一个新对象 
+        let clone = createObj(original); // 通过调用函数创建一个新对象 
         clone.sayHi = function() { // 以某种方式增强这个对象
             console.log("hi");
         };
         return clone; 
     }
 ```
-#### 寄生组合式继承
+### 寄生组合式继承
 ```js
     function SuperType(name) {
         this.name = name;
@@ -281,8 +293,3 @@ Object.prototype.toString.call(window) ; //[object Window]
         console.log(this.age);
     };
 ```
-
-
-
-
-

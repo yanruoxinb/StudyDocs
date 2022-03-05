@@ -17,7 +17,6 @@ function mySetInterVal(fn, a, b) {
             fn();
             timeCount++;
             loop();
-
         }, a + timeCount * b)
     }
     loop();
@@ -27,5 +26,8 @@ function mySetInterVal(fn, a, b) {
 }
 
 
-const timer = mySetInterVal(() => { console.log('----run--------') }, 100, 50);
+const timer = mySetInterVal(() => {
+    console.log('----run--------')
+}, 100, 50);
+
 setTimeout(() => timer(), 1000)
