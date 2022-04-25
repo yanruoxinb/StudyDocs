@@ -1,3 +1,8 @@
+/**
+ * 新建树结构
+ * @param {*} arr 
+ * @returns 
+ */
 const buildTree = (arr) => {
     tmp = {};
     res = {};
@@ -6,7 +11,6 @@ const buildTree = (arr) => {
     }
 
     for (let i in tmp) {
-        console.log(i,tmp[i],'-----i----',res)
         if (tmp[i].parent_id) { // 如果节点没有父节点，即该节点为根节点
             if (!tmp[tmp[i].parent_id].children) { // 该节点的父节点和该节点没有形成关系
                 tmp[tmp[i].parent_id].children = new Object();

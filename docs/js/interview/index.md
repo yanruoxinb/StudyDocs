@@ -24,13 +24,6 @@ react怎么实现ssr框架
 ant-design + antd-pro 有没有看过源码
 redux生态 （redux react-redux，redux-saga dva， umi）
 
-
-## 框架原理(Vue)
-会vue基础使用不值钱
-组件化 + element-ui源码
-vue有了响应式，为啥需要虚拟dom
-vue的虚拟dom和react虚拟dom有啥区别嘞
-vuex vue-router原理等
 ## 计算机基础
 ## 算法数据结构
 链表
