@@ -1,6 +1,9 @@
 
 
 function myInstance(target, origin) {
+    if (typeof target !== 'object' || origin == null) {
+        return false;
+    }
     let proto = Object.getPrototypeOf(target);
     const originProto = origin.prototype;
     while (true) {
@@ -15,7 +18,7 @@ function myInstance(target, origin) {
 }
 
 
-function myPuppy() {}
+function myPuppy() { }
 const people1 = new Object();
 const people2 = new myPuppy();
 console.log(myInstance(people1, Object));

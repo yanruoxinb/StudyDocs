@@ -1,59 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>事件冒泡</title>
     <script>
         console.log(fun)
-    
         console.log(person)
     </script>
-    
     <script>
-        console.log(person)
-    
+        console.log(person);
         console.log(fun)
-    
         var person = "Eric";
-    
         console.log(person)
-    
         function fun() {
             console.log(person)
             var person = "Tom";
             console.log(person)
         }
-    
         fun()
-    
         console.log(person)
     </script>
-    17:25:32.765 VM961:1 
+
 </head>
+
 <body>
     <div>
-       <a target="_blank" href="https://doc.weixin.qq.com/sheet/e3_ADYAfAZMAAo5fxXssPKQ0uY20ct55?scode=ANEAJwfLAAoxL5EEVIADwAFQaaAPM" tar>测试5555555</a>
-        <p id="parEle">我是父元素    <span id="sonEle">我是子元素</span></p>
+        <a target="_blank"
+            href="https://doc.weixin.qq.com/sheet/e3_ADYAfAZMAAo5fxXssPKQ0uY20ct55?scode=ANEAJwfLAAoxL5EEVIADwAFQaaAPM"
+            tar>测试5555555</a>
+        <p id="parEle">
+            我是父元素
+            <span id="sonEle">我是子元素</span>
+        </p>
     </div>
 </body>
+
 </html>
 <script type="text/javascript">
-var sonEle = document.getElementById('sonEle');
-var parEle = document.getElementById('parEle');
+    var sonEle = document.getElementById('sonEle');
+    var parEle = document.getElementById('parEle');
 
-parEle.addEventListener('click', function () {
-    alert('父级 冒泡');
-}, false);
-parEle.addEventListener('click', function () {
-    alert('父级 捕获');
-}, true);
+    parEle.addEventListener('click', function () {
+        console.log('父级 冒泡');
+    }, false);
+    parEle.addEventListener('click', function () {
+        console.log('父级 捕获');
+    }, true);
 
-sonEle.addEventListener('click', function () {
-    alert('子级冒泡');
-}, false);
-sonEle.addEventListener('click', function () {
-    alert('子级捕获');
-}, true);
+    sonEle.addEventListener('click', function () {
+        console.log('子级冒泡');
+    }, false);
+    sonEle.addEventListener('click', function () {
+        console.log('子级捕获');
+    }, true);
 
 </script>
-
