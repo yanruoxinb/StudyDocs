@@ -20,7 +20,6 @@ const add1 = (a,b)=>{
     return a+b
 }
 
-console.log(curry(add1,4)(1)(2)(4)(3));
 
 const curry2 = (fn) =>{
   return (judge = (...args) =>

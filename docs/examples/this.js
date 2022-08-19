@@ -1,6 +1,4 @@
-# this
 
-```js
 var name = 'window'
 var person1 = {
   name: 'person1',
@@ -28,6 +26,3 @@ person1.show3.call(person2)()
 person1.show4()()
 person1.show4().call(person2) 
 person1.show4.call(person2)() 
-```
-
-# 继承

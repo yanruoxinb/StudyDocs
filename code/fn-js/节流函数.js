@@ -20,5 +20,4 @@ function test() {
 const a = throttle(test, 200);
 a();
 a();
-
 a();
