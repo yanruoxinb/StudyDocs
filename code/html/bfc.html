@@ -12,24 +12,40 @@
             padding: 0;
             margin: 0;
         }
+      
     
-        #sec {
-            background: #f00;
+        .left{
+            float: left;
+            width: 200px;
+            background-color: aqua;
+            height: 300px;
         }
-    
-        .child {
-            height: 100px;
-            margin-top: 10px;
-            background: yellow;
+        .middle{
+           float: right;
+           width: 200px;
+            background-color: yellow;
+            height: 300px;
+            overflow: hidden;
+        }
+        .right{
+            overflow: hidden;
+            background-color:blueviolet;
+            height: 600px;
         }
     </style>
 </head>
 <body>
 
-    <section id="sec">
-        <article class="child">
-        </article>
-    </section>
+   <div class="left">
+        <span>ewee</span>
+        <span>块级格式化上下文:他会创建一个特殊的区域,这个特殊的区城不受外界影响。在这个区域中，只有block box 参与布局；而 BFC 的一系列特点和规则规定了在这个特殊的区城中如何进行布局，如何进行定位，区城内元素的相互关系和相互作用是怎样的。这个特殊的区域不受外界影响。 上</span>
+        <span>eeeee</span>
+        <p>eeeeeeeeee握手</p>
+   </div>
+   <div class="middle"></div>
+   <div class="right">
+
+   </div>
     
 </body>
 </html>

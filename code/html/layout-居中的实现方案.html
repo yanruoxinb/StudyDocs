@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=z, initial-scale=1.0">
+    <title>居中的实现方式</title>
+    <style>
+        /* 居中的实现方案1 */
+        .parent {
+            position: relative;
+        }
+
+        .child {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -50px;
+            margin-top: -50px;
+        }
+
+        /* 居中的实现方案2 */
+        .parent {
+            position: relative;
+        }
+
+        .child {
+            position: absolute;
+            top: calc(50% - 50px);
+            left: calc(50% - 50px)
+        }
+
+        /* 居中的实现方案3 */
+        .parent {
+            position: relative;
+        }
+
+        .child {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        /* 居中的实现方案4 */
+        .parent {
+            position: relative;
+        }
+
+        .child {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* 居中的实现方案5 */
+        .parent {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 居中的实现方案6 */
+        .parent {
+            display: grid;
+        }
+
+        .child {
+            align-self: center;
+            justify-self: center;
+        }
+
+        /* 居中的实现方案7 */
+        .parent {
+           display: table-cell;
+           text-align: center;
+           vertical-align: middle;
+        }
+        .child {
+           display: inline-block;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="parent">
+        <div class="child"></div>
+    </div>
+
+</body>
+
+</html>
