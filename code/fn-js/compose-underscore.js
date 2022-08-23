@@ -1,3 +1,7 @@
+/**
+ * 
+ * @returns 
+ */
 function compose() {
     var args = arguments;
     var start = args.length - 1;
