@@ -1,18 +1,22 @@
+function merge(leftArr, rightArr){  
+    var result = [];  
+    while (leftArr.length > 0 && rightArr.length > 0){  
+      if (leftArr[0] < rightArr[0])  
+        result.push(leftArr.shift()); //把最小的最先取出，放到结果集中   
+      else   
+        result.push(rightArr.shift());  
+    }   
 
+    return result.concat(leftArr).concat(rightArr);  //剩下的就是合并，这样就排好序了  
+}  
 
-function mergeSort(arr) {
-    let res = [];
-    const merge = (arr, left, mid, right) => {
+function mergeSort(array){  
+    if (array.length == 1) return array;  
+    let mid = Math.floor(array.length / 2);       //求出中点  
+    let left = array.slice(0, mid);               //分割数组  
+    let right = array.slice(mid);  
+    return merge(mergeSort(left), mergeSort(right)); //递归合并与排序  
+}  
 
-    }
-    const sort = (arr, left, right) => {
-        if(left<right){
-            let mid = (left + right) >>> 1;
-            sort(arr, left, mid)
-            sort(arr, mid, right);
-        }
-        merge(arr, left, mid, right)
-    }
-    sort(arr, 0, arr.lenght - 1)
-
-}
+var arr = mergeSort([32,12,56,78,76,45,36]);
+console.log(arr);   // [12, 32, 36, 45, 56, 76, 78]

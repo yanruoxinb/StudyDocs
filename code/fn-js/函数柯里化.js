@@ -1,3 +1,19 @@
+
+const add = (...args1)=>{
+    let args = [...args1]
+    const fn = (...args2)=>{
+        args = [...args,...args2]
+        return fn;
+    }
+    fn.toString = function(){
+        return args.reduce((prev,item)=>prev+item,0)
+    }
+    return fn;
+}
+
+console.log(add(1)(2)(3).toString());
+console.log(add(3)(4,5)==12)
+
 /**
  * 函数柯里化
  * @param {*} fn 
@@ -29,17 +45,3 @@ const curry2 = (fn) =>{
 }
 
 
-const add = (...args1)=>{
-    let args = [...args1]
-    const fn = (...args2)=>{
-        args = [...args,...args2]
-        return fn;
-    }
-    fn.toString = function(){
-        return args.reduce((prev,item)=>prev+item,0)
-    }
-    return fn;
-}
-
-console.log(add(1)(2)(3).toString());
-console.log(add(3)(4,5)==12)

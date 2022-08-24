@@ -1,3 +1,11 @@
+/**
+ * underscore 实现debounce的方法 
+ * @param {*} func 
+ * @param {*} wait 
+ * @param {*} immediate 
+ * @returns 
+ */
+
 function debounce(func, wait, immediate) {
     var timeout, previous, args, result, context;
 

@@ -1,4 +1,9 @@
 
+/**
+ * 数组扁平化
+ * @param {*} arr 
+ * @returns 
+ */
 function flattern(arr) {
     let result = [];
     for (let i = 0; i < arr.length; i++){
