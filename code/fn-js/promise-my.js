@@ -65,8 +65,8 @@ Promise.prototype.then = function (onFulfilled, onRejected) {
         })
     }
     if (this.status === 'pending') {
-        this.onRejectCallBackArr.push(onRejected);
-        this.onResolveCallBackArr.push(onRejected);
+        this.onRejectCalBalckArr.push(onRejected);
+        this.onResolveCallBackArr.push(onFulfilled);
         
         return promise2 = new Promise((resolve, reject) => {
             this.onResolveCallBackArr.push(() => {

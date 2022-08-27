@@ -22,4 +22,9 @@ Es module 的特性如下：
 - webpack 打包后代码很多冗余无法直接看，rollup 打包后的代码简洁，可读，像源码
 - webpack 可以进行代码分割，静态资源处理，HRM，rollup 专注于 es module，tree-shaking更加强大的，精简
 
+## `for in` 和 ` for of`的区别
+
+- `for in`遍历的是数组的索引（即键名），而`for of`遍历的是数组元素值，只是数组内的元素，不包括数组的原型属性
+- `for of`
+
 

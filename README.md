@@ -7,8 +7,8 @@
 2. [回流和重绘](https://juejin.cn/post/6844903779700047885)
 3. [Commonjs 和 Es Module的区别](https://juejin.cn/post/6994224541312483336)
 > 参考文档更加值得看
-4. [Promise介绍](https://juejin.cn/post/6997968693414084644)
-5. []()
+4. [Promise实现](https://juejin.cn/post/6997968693414084644)
+5. [Primise常见题](https://juejin.cn/post/6844904077537574919)
 ## React
 1. [react源码](https://react.iamkasong.com/#%E5%AF%BC%E5%AD%A6%E8%A7%86%E9%A2%91)
 2. [react diff 算法解析](https://zhuanlan.zhihu.com/p/20346379?refer=purerender)
