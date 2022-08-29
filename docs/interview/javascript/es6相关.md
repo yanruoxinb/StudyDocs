@@ -8,6 +8,8 @@ Commonjs 的特性如下：
 - CommonJS 模块同步加载并执行模块文件。
 > `webpack` 不支持对 `CommonJS` 进行 `Tree-shaking`
 
+> module.exports 被改变的时候，exports不会被改变，而模块导出的时候，真正导出的执行是module.exports，而不是exports
+
 Es module 的特性如下：
 
 - ES6 Module 静态的，不能放在块级作用域内，代码发生在编译时。
