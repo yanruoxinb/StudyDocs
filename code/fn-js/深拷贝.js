@@ -46,8 +46,8 @@ function cloneDeep(obj, map = new WeakMap()) {
     if (obj instanceof Map) {
         target = new Map();
         obj.forEach((value, key) => {
-            const v1 = cloneDeep(value);
             const k1 = cloneDeep(key);
+            const v1 = cloneDeep(value);
             target.set(k1, v1);
         })
     }
@@ -55,20 +55,20 @@ function cloneDeep(obj, map = new WeakMap()) {
     if (obj instanceof Set) {
         target = new Set();
         obj.forEach((v) => {
-            const v1 = cloneDeep(v,map);
+            const v1 = cloneDeep(v, map);
             target.add(v1);
         })
     }
 
     // Array
-    if(obj instanceof Array){
-        target = obj.map(item=>cloneDeep(item,map))
+    if (obj instanceof Array) {
+        target = obj.map(item => cloneDeep(item, map))
     }
 
     // Object
-    for(const key in obj){
+    for (const key in obj) {
         const val = obj[key];
-        const val1 = cloneDeep(val,map)
+        const val1 = cloneDeep(val, map)
         target[key] = val1;
     }
 
